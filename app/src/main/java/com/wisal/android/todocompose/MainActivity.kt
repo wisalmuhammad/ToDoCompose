@@ -17,6 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.wisal.android.todocompose.screens.AddEditScreen
+import com.wisal.android.todocompose.screens.TaskDetailScreen
 import com.wisal.android.todocompose.screens.TasksScreen
 import com.wisal.android.todocompose.ui.theme.ToDoComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,8 +62,8 @@ fun ToDoApp() {
                     }
                 )
             ) {
-//                val taskId = it.arguments?.getString("taskId")
-//                TaskDetailScreen(navController = navController, taskId = taskId!!)
+                val taskId = it.arguments?.getString("taskId")
+                TaskDetailScreen(navController = navController, taskId = taskId!!)
             }
             composable(
                 "${Screen.AddEditScreen.route}?taskId={taskId}",
@@ -72,10 +74,10 @@ fun ToDoApp() {
                 })
 
             ) {
-//                AddEditScreen(
-//                    navController = navController,
-//                    taskId = it.arguments?.getString("taskId")
-//                )
+                AddEditScreen(
+                    navController = navController,
+                    taskId = it.arguments?.getString("taskId")
+                )
             }
         })
 }

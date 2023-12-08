@@ -64,7 +64,7 @@ fun TasksScreen(
                 title = { Text(text = stringResource(id = R.string.todo)) },
                 navigationIcon = {
                     IconButton(
-                        onClick = { /*TODO*/ }
+                        onClick = {  }
                     ){
                         Icon(
                             Icons.Filled.Menu,
