@@ -18,6 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.wisal.android.todocompose.screens.AddEditScreen
+import com.wisal.android.todocompose.screens.StatisticsScreen
 import com.wisal.android.todocompose.screens.TaskDetailScreen
 import com.wisal.android.todocompose.screens.TasksScreen
 import com.wisal.android.todocompose.ui.theme.ToDoComposeTheme
@@ -28,6 +29,7 @@ sealed class Screen(val title: String,val route: String) {
     object TasksScreen: Screen("Todo","tasks")
     object AddEditScreen: Screen("New Task","add_edit_task")
     object TaskDetail: Screen("Task Detail","task_detail")
+    object StatisticsScreen: Screen("Tasks Statistics","tasks_statistics")
 }
 
 
@@ -78,6 +80,11 @@ fun ToDoApp() {
                     navController = navController,
                     taskId = it.arguments?.getString("taskId")
                 )
+            }
+            composable(
+                Screen.StatisticsScreen.route,
+            ) {
+                StatisticsScreen(navController = navController)
             }
         })
 }
